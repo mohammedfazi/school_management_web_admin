@@ -741,7 +741,7 @@ class _Dashboard_screenState extends State<Dashboard_screen> {
                 // color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
               ),
-              width: displaywidth(context)*0.30,
+              width: displaywidth(context)*0.32,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1891,273 +1891,271 @@ class _Dashboard_screenState extends State<Dashboard_screen> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10)
         ),
-        child: Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Notice Board",style: headingtxt18(),),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Notice Board",style: headingtxt18(),),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left:650.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: displaywidth(context)*0.20,
+                          height: displayheight(context)*0.05,
+                          child: TextFormField(
+                            style: drawertxt1(),
+                            cursorColor: Colors.black,
+                            decoration: InputDecoration(
+                                prefixIcon: const Icon(Icons.search,color: Colors.grey,),
+                                hintStyle: drawertxt(),
+                                hintText: "Search by Title",
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide: const BorderSide(color: Colors.grey)
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide: const BorderSide(color: Colors.grey)
+                                )
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(
+                          backgroundColor: ColorConstant.yellowcolor,
+                          child: Center(
+                            child: Icon(Icons.filter_list_alt),
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: CircleAvatar(
+                          backgroundColor: ColorConstant.yellowcolor,
+                          child: Center(
+                            child: Icon(Icons.add),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left:650.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: displayheight(context)*0.90,
+                  width: displaywidth(context)*0.55,
+                  child: ListView.builder(
+                      itemBuilder: (BuildContext context,int index){
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: InkWell(
+                            onTap: (){
+                              setState(() {
+                                noticeontap=index;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(color: Colors.grey,width: 0.2),
+                                color: noticeontap==index?Colors.grey.shade100:Colors.white
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius: BorderRadius.circular(10),
+                                                  child: Image.asset(Asset_Constant.profile,height: displayheight(context)*0.05)),
+                                              Padding(
+                                                padding: const EdgeInsets.only(left:8.0),
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text("Welcome Back to School!",style: commontextstyle(color: Colors.black,size: 15,fontweight: FontWeight.w500)),
+                                                    Text("By Principal Linda Carter",style: commontextstyle(color: Colors.grey),)
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                  color: noticeontap==index?Colors.white:Colors.grey.shade500,
+                                                  borderRadius: BorderRadius.circular(30)
+                                                ),
+                                                child: Center(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: Text("August 1, 2024",style:
+                                                    noticeontap==index?
+                                                    commontextstyle(fontweight: FontWeight.w700,color: Colors.grey):
+                                                    commontextstyle(fontweight: FontWeight.w700,color: Colors.white)
+                                                      ,),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(left:8.0),
+                                                child: Row(
+                                                  children: [
+                                                    const Icon(CupertinoIcons.eye_solid,color: Colors.grey,),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(left:4.0),
+                                                      child: Text("1.2K",style: commontextstyle(color: Colors.grey),),
+                                                    )
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          )
+
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: Text("As we embark on another exciting academic year, let’s embrace the opportunities that lie ahead. We're thrilled to welcome new faces and reunite with returning students. Don't miss our opening assembly on August 5th!",style:commontextstyle(size: 14),),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: displayheight(context)*0.80,
+                    width: displaywidth(context)*0.27,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey.shade100),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            width: displaywidth(context)*0.20,
-                            height: displayheight(context)*0.05,
-                            child: TextFormField(
-                              style: drawertxt1(),
-                              cursorColor: Colors.black,
-                              decoration: InputDecoration(
-                                  prefixIcon: const Icon(Icons.search,color: Colors.grey,),
-                                  hintStyle: drawertxt(),
-                                  hintText: "Search by Title",
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                      borderSide: const BorderSide(color: Colors.grey)
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                      borderSide: const BorderSide(color: Colors.grey)
-                                  )
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(Asset_Constant.banner,height: displayheight(context)*0.25,width:double.infinity,fit: BoxFit.fill,)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Welcome Back to School!",style: commontextstyle(color: Colors.black,size: 15,fontweight: FontWeight.w500)),
+                              Text("By Principal Linda Carter",style: commontextstyle(color: Colors.grey),),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey.shade500,
+                                          borderRadius: BorderRadius.circular(30)
+                                      ),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text("August 1, 2024",style:
+                                          commontextstyle(fontweight: FontWeight.w700,color: Colors.white)
+                                            ,),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left:8.0),
+                                      child: Row(
+                                        children: [
+                                          const Icon(CupertinoIcons.eye_solid,color: Colors.grey,),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:4.0),
+                                            child: Text("1.2K",style: commontextstyle(color: Colors.grey),),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: CircleAvatar(
-                            backgroundColor: ColorConstant.yellowcolor,
-                            child: Center(
-                              child: Icon(Icons.filter_list_alt),
-                            ),
-                          ),
+
+
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("As we embark on another exciting academic year, let’s embrace the opportunities that lie ahead. We're thrilled to welcome new faces and reunite with returning students. Don't miss our opening assembly on August 5th!",style:commontextstyle(size: 14),),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: CircleAvatar(
-                            backgroundColor: ColorConstant.yellowcolor,
-                            child: Center(
-                              child: Icon(Icons.add),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("As we embark on another exciting academic year, let’s embrace the opportunities that lie ahead. We're thrilled to welcome new faces and reunite with returning students. Don't miss our opening assembly on August 5th!",style:commontextstyle(size: 14),),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: ColorConstant.bluecolor
                             ),
-                          ),
+                              onPressed: (){},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                             crossAxisAlignment: CrossAxisAlignment.center,
+                             children: [
+                              Text("Read Full Page",style: commontextstyle(),),
+                               const Padding(
+                                 padding: EdgeInsets.only(left:4.0),
+                                 child: Icon(Icons.send,color: Colors.black,size: 15,),
+                               )
+                            ],
+                          )),
                         )
+
                       ],
                     ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: displayheight(context)*0.90,
-                    width: displaywidth(context)*0.55,
-                    child: ListView.builder(
-                        itemBuilder: (BuildContext context,int index){
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: (){
-                                setState(() {
-                                  noticeontap=index;
-                                });
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(color: Colors.grey,width: 0.2),
-                                  color: noticeontap==index?Colors.grey.shade100:Colors.white
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                    child: Image.asset(Asset_Constant.profile,height: displayheight(context)*0.05)),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left:8.0),
-                                                  child: Column(
-                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children: [
-                                                      Text("Welcome Back to School!",style: commontextstyle(color: Colors.black,size: 15,fontweight: FontWeight.w500)),
-                                                      Text("By Principal Linda Carter",style: commontextstyle(color: Colors.grey),)
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    color: noticeontap==index?Colors.white:Colors.grey.shade500,
-                                                    borderRadius: BorderRadius.circular(30)
-                                                  ),
-                                                  child: Center(
-                                                    child: Padding(
-                                                      padding: const EdgeInsets.all(8.0),
-                                                      child: Text("August 1, 2024",style:
-                                                      noticeontap==index?
-                                                      commontextstyle(fontweight: FontWeight.w700,color: Colors.grey):
-                                                      commontextstyle(fontweight: FontWeight.w700,color: Colors.white)
-                                                        ,),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left:8.0),
-                                                  child: Row(
-                                                    children: [
-                                                      const Icon(CupertinoIcons.eye_solid,color: Colors.grey,),
-                                                      Padding(
-                                                        padding: const EdgeInsets.only(left:4.0),
-                                                        child: Text("1.2K",style: commontextstyle(color: Colors.grey),),
-                                                      )
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            )
-
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(4.0),
-                                        child: Text("As we embark on another exciting academic year, let’s embrace the opportunities that lie ahead. We're thrilled to welcome new faces and reunite with returning students. Don't miss our opening assembly on August 5th!",style:commontextstyle(size: 14),),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        }),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: displayheight(context)*0.80,
-                      width: displaywidth(context)*0.27,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.grey.shade100),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset(Asset_Constant.banner,height: displayheight(context)*0.25,width:double.infinity,fit: BoxFit.fill,)),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Welcome Back to School!",style: commontextstyle(color: Colors.black,size: 15,fontweight: FontWeight.w500)),
-                                Text("By Principal Linda Carter",style: commontextstyle(color: Colors.grey),),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey.shade500,
-                                            borderRadius: BorderRadius.circular(30)
-                                        ),
-                                        child: Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text("August 1, 2024",style:
-                                            commontextstyle(fontweight: FontWeight.w700,color: Colors.white)
-                                              ,),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left:8.0),
-                                        child: Row(
-                                          children: [
-                                            const Icon(CupertinoIcons.eye_solid,color: Colors.grey,),
-                                            Padding(
-                                              padding: const EdgeInsets.only(left:4.0),
-                                              child: Text("1.2K",style: commontextstyle(color: Colors.grey),),
-                                            )
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                )
+              ],
+            )
 
-
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("As we embark on another exciting academic year, let’s embrace the opportunities that lie ahead. We're thrilled to welcome new faces and reunite with returning students. Don't miss our opening assembly on August 5th!",style:commontextstyle(size: 14),),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("As we embark on another exciting academic year, let’s embrace the opportunities that lie ahead. We're thrilled to welcome new faces and reunite with returning students. Don't miss our opening assembly on August 5th!",style:commontextstyle(size: 14),),
-                          ),
-                          
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: ColorConstant.bluecolor
-                              ),
-                                onPressed: (){},
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                               crossAxisAlignment: CrossAxisAlignment.center,
-                               children: [
-                                Text("Read Full Page",style: commontextstyle(),),
-                                 const Padding(
-                                   padding: EdgeInsets.only(left:4.0),
-                                   child: Icon(Icons.send,color: Colors.black,size: 15,),
-                                 )
-                              ],
-                            )),
-                          )
-
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              )
-
-            ],
-          ),
+          ],
         ),
       ),
     );
@@ -2546,7 +2544,7 @@ class _Dashboard_screenState extends State<Dashboard_screen> {
                       children: [
                         SizedBox(
                           height: displayheight(context) * 0.69,
-                          width: viewprofile == true ? displaywidth(context) * 0.33 : displaywidth(context) * 0.54,
+                          width: viewprofile == true?displaywidth(context) * 0.34 : displaywidth(context) * 0.54,
                           child: ListView.builder(
                             itemCount: chatlist.length,
                             itemBuilder: (BuildContext context, int index) {
@@ -2698,8 +2696,8 @@ class _Dashboard_screenState extends State<Dashboard_screen> {
                       ],
                     ),
                     
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 15.0),
                       child: CircleAvatar(
                         radius: 50,
                         backgroundImage: AssetImage(Asset_Constant.profile),
@@ -2908,7 +2906,7 @@ class _Dashboard_screenState extends State<Dashboard_screen> {
 
   Widget homeworkannouncement(){
     return Container(
-      width: displaywidth(context)*0.30,
+      width: displaywidth(context)*0.32,
       decoration: const BoxDecoration(
         color: Colors.white
       ),
